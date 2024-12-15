@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="mx-auto w-fit">
+<!-- <div class="mx-auto w-fit">
   {% for entry in entries %}
   <div
     class="relative flex flex-col my-6 bg-inherit shadow-sm fancy-border w-100"
@@ -27,5 +27,46 @@
     </div>
   </div>
   {% endfor %}
+</div> -->
+
+<div class="container mx-auto max-w-6xl p-4">
+  <h3 class="text-amber-400 megrim-regular font-bold py-6 text-4xl text-center">
+    Confession Board
+  </h3>
+  <div class="md:columns-2 lg:columns-3 gap-6 p-4 sm:p-1 mt-2">
+    <!-- Card -->
+    {% for entry in entries %}
+    <div class="animate-in zoom-in duration-200">
+      <div
+        class="fancy-border flex flex-col space-y-2 p-4 break-inside-avoid mb-6 bg-transparent hover:ring-2 ring-gray-300 hover:ring-amber-200 transform duration-200 hover:shadow-amber-200 hover:shadow-md z-0 relative"
+      >
+        <div class="flex flex-col break-inside-avoid-page z-0 relative">
+          <div class="flex justify-between">
+            <div class="flex space-x-6">
+              <div class="flex space-x-4 flex-shrink-0 w-52">
+                <div>
+                  <div class="font-semibold text-amber-400">
+                    Is {{entry.mood}}
+                  </div>
+                  <div class="text-sm text-slate-500">
+                    {{ entry.date_created|date:"F d, Y"}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a
+            href="#"
+            target="_blank"
+            class="whitespace-pre-line text-2xl text-amber-400 break-inside-avoid-page"
+          >
+            {{entry.title}}
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}
