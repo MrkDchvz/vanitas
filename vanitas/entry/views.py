@@ -6,9 +6,9 @@ def index(request):
     return render(request, 'entry/index.html', {'entries' : entries})
 
 
-def form(request):
+def add_entry(request):
     moods = Mood.objects.all()
-    return render(request, 'entry/form.html', {'moods' : moods})
+    return render(request, 'entry/add_entry.html', {'moods' : moods})
 
 def detail(request, entry_id):
     entry = get_object_or_404(Entry, pk=entry_id)
