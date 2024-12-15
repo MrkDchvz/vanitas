@@ -4,6 +4,6 @@ from . import views
 app_name = 'entry'
 urlpatterns = [
     path('', views.index, name='index'),
-    path('/form', views.form, name='form'),
+    path('add_entry', views.add_entry, name='add_entry'),
     path('<int:entry_id>/', views.detail, name='detail')
 ]
