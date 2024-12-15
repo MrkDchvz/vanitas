@@ -8,9 +8,8 @@ def index(request):
 
 
 def add_entry(request):
-    form = PostForm()
     moods = Mood.objects.all()
-    return render(request, 'entry/add_entry.html', {'moods' : moods, 'form' : form})
+    return render(request, 'entry/add_entry.html', {'moods' : moods})
 
 def detail(request, entry_id):
     entry = get_object_or_404(Entry, pk=entry_id)
