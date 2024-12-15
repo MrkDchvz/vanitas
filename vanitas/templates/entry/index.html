@@ -57,8 +57,7 @@
           </div>
 
           <a
-            href="#"
-            target="_blank"
+            href="{% url 'entry:detail' entry.id %}"
             class="whitespace-pre-line text-2xl text-amber-400 break-inside-avoid-page"
           >
             {{entry.title}}
