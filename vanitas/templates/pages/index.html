@@ -1,35 +1,36 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanitas: An Anonymous Public Diary</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Megrim&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'pages/css/styles.css' %}">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Megrim&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'pages/css/styles.css' %}" />
+  </head>
+  <body>
     <div class="container">
-        <div class="content">
-            <div class="square twitch" style="margin-bottom: 50px;">
-                <span class="one" ></span>
-                <span class="two"></span>
-                <span class="three"></span>
-                <div class="circle">
-                    <h2 class="Vanitas"> Vanitas
-
-                    </h2>
-                    <p class="tagline">Unfiltered Thoughts, Unveiled.</p>
-                </div>
-            </div>
-
-            <a href="{% url 'entry:index' %}" class="button" target="_parent">
-                    <span class="actual-text">&nbsp;Enter&nbsp;</span>
-                    <span class="hover-text" aria-hidden="true">&nbsp;Enter&nbsp;</span>
-            </a>
+      <div class="content">
+        <div class="square twitch" style="margin-bottom: 50px">
+          <span class="one"></span>
+          <span class="two"></span>
+          <span class="three"></span>
+          <div class="circle">
+            <h2 class="Vanitas">Vanitas</h2>
+            <p class="tagline">Unfiltered Thoughts, Unveiled.</p>
+          </div>
         </div>
+
+        <a href="{% url 'entry:index' %}" class="button" target="_parent">
+          <span class="actual-text">&nbsp;Enter&nbsp;</span>
+          <span class="hover-text" aria-hidden="true">&nbsp;Enter&nbsp;</span>
+        </a>
+      </div>
     </div>
-</body>
+  </body>
 </html>
