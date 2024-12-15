@@ -1,8 +1,18 @@
-<nav class="font-sans flex flex-col text-center sm:flex-row sm:text-left sm:justify-between py-4 px-6 bg-transparent shadow sm:items-baseline w-full">
+<nav
+  class="font-sans flex flex-col text-center sm:flex-row sm:text-left sm:justify-between py-4 px-6 bg-transparent shadow sm:items-baseline w-full"
+>
   <div class="mb-2 sm:mb-0">
-    <a href="#" class="text-4xl no-underline text-white hover:text-blue-dark  megrim-regular">Vanitas</a>
+    <a
+      href="{% url 'entry:index' %}"
+      class="text-4xl no-underline text-white hover:text-blue-dark megrim-regular"
+      >Vanitas</a
+    >
   </div>
   <div>
-    <a href="{% url 'entry:form' %}" class="text-lg no-underline text-white hover:text-amber-400 ml-2 megrim-regular">Confess</a>
+    <a
+      href="{% url 'entry:form' %}"
+      class="text-lg no-underline text-white hover:text-amber-400 ml-2 megrim-regular"
+      >Confess</a
+    >
   </div>
 </nav>

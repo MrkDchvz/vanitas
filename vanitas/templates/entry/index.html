@@ -36,35 +36,36 @@
   <div class="md:columns-2 lg:columns-3 gap-6 p-4 sm:p-1 mt-2">
     <!-- Card -->
     {% for entry in entries %}
-    <div class="animate-in zoom-in duration-200">
-      <div
-        class="fancy-border flex flex-col space-y-2 p-4 break-inside-avoid mb-6 bg-transparent hover:ring-2 ring-gray-300 hover:ring-amber-200 transform duration-200 hover:shadow-amber-200 hover:shadow-md z-0 relative"
-      >
-        <div class="flex flex-col break-inside-avoid-page z-0 relative">
-          <div class="flex justify-between">
-            <div class="flex space-x-6">
-              <div class="flex space-x-4 flex-shrink-0 w-52">
-                <div>
-                  <div class="font-semibold text-amber-400">
-                    Is {{entry.mood}}
-                  </div>
-                  <div class="text-sm text-slate-500">
-                    {{ entry.date_created|date:"F d, Y"}}
+    <a href="{% url 'entry:detail' entry.id %}">
+      <div class="animate-in zoom-in duration-200">
+        <div
+          class="fancy-border flex flex-col space-y-2 p-4 break-inside-avoid mb-6 bg-transparent hover:ring-2 ring-gray-300 hover:ring-amber-200 transform duration-200 hover:shadow-amber-200 hover:shadow-md z-0 relative"
+        >
+          <div class="flex flex-col break-inside-avoid-page z-0 relative">
+            <div class="flex justify-between">
+              <div class="flex space-x-6">
+                <div class="flex space-x-4 flex-shrink-0 w-52">
+                  <div>
+                    <div class="font-semibold text-amber-400">
+                      Is {{entry.mood}}
+                    </div>
+                    <div class="text-sm text-slate-500">
+                      {{ entry.date_created|date:"F d, Y"}}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <a
-            href="{% url 'entry:detail' entry.id %}"
-            class="whitespace-pre-line text-2xl text-amber-400 break-inside-avoid-page"
-          >
-            {{entry.title}}
-          </a>
+            <p
+              class="whitespace-pre-line text-2xl text-amber-400 break-inside-avoid-page"
+            >
+              {{entry.title}}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </a>
     {% endfor %}
   </div>
 </div>
