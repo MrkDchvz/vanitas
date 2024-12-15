@@ -1,0 +1,90 @@
+from django.core.management.base import BaseCommand
+from entry.models import Mood  
+
+class Command(BaseCommand):
+    help = "Bulk add moods to the database"
+
+    def handle(self, *args, **kwargs):
+        moods = [
+    {"name": "Happy", "emoji": "😀"},
+    {"name": "Sad", "emoji": "😢"},
+    {"name": "Angry", "emoji": "😠"},
+    {"name": "Excited", "emoji": "🤩"},
+    {"name": "Calm", "emoji": "😌"},
+    {"name": "Tired", "emoji": "😴"},
+    {"name": "Stressed", "emoji": "😓"},
+    {"name": "Anxious", "emoji": "😟"},
+    {"name": "Confident", "emoji": "😎"},
+    {"name": "In Love", "emoji": "❤️"},
+    {"name": "Nervous", "emoji": "😬"},
+    {"name": "Grateful", "emoji": "🙏"},
+    {"name": "Lonely", "emoji": "😔"},
+    {"name": "Hopeful", "emoji": "🤞"},
+    {"name": "Embarrassed", "emoji": "😳"},
+    {"name": "Relaxed", "emoji": "🌿"},
+    {"name": "Bored", "emoji": "😐"},
+    {"name": "Guilty", "emoji": "😖"},
+    {"name": "Proud", "emoji": "🥳"},
+    {"name": "Frustrated", "emoji": "😤"},
+    {"name": "Content", "emoji": "😊"},
+    {"name": "Overwhelmed", "emoji": "😵"},
+    {"name": "Curious", "emoji": "🤔"},
+    {"name": "Jealous", "emoji": "😒"},
+    {"name": "Surprised", "emoji": "😲"},
+    {"name": "Confused", "emoji": "😕"},
+    {"name": "Cheerful", "emoji": "😁"},
+    {"name": "Silly", "emoji": "🤪"},
+    {"name": "Scared", "emoji": "😨"},
+    {"name": "Determined", "emoji": "💪"},
+    {"name": "Shy", "emoji": "🙈"},
+    {"name": "Optimistic", "emoji": "🌞"},
+    {"name": "Worried", "emoji": "😰"},
+    {"name": "Disappointed", "emoji": "😞"},
+    {"name": "Lazy", "emoji": "😌💤"},
+    {"name": "Energetic", "emoji": "⚡"},
+    {"name": "Focused", "emoji": "🎯"},
+    {"name": "Playful", "emoji": "🎉"},
+    {"name": "Apathetic", "emoji": "😶"},
+    # Modern Slang
+    {"name": "Chill", "emoji": "😎"},
+    {"name": "Lit", "emoji": "🔥"},
+    {"name": "Based", "emoji": "👌"},
+    {"name": "Cringe", "emoji": "😬"},
+    {"name": "Salty", "emoji": "😤"},
+    {"name": "Savage", "emoji": "😏"},
+    {"name": "Vibing", "emoji": "🎶"},
+    {"name": "Mood", "emoji": "🙌"},
+    {"name": "Hyped", "emoji": "💥"},
+    {"name": "Slay", "emoji": "💅"},
+    {"name": "Zoned Out", "emoji": "🌌"},
+    {"name": "Triggered", "emoji": "😡"},
+    {"name": "Epic", "emoji": "🏆"},
+    {"name": "Sus", "emoji": "🧐"},
+    {"name": "YOLO", "emoji": "🤙"},
+    {"name": "Extra", "emoji": "🎭"},
+    {"name": "FOMO", "emoji": "😰"},
+    {"name": "Shook", "emoji": "😲"},
+    {"name": "Blessed", "emoji": "✨"},
+    {"name": "Ghosting", "emoji": "👻"},
+    {"name": "Dead Inside", "emoji": "💀"},
+    {"name": "On Cloud Nine", "emoji": "☁️"},
+    {"name": "Hangry", "emoji": "🍔😠"},
+    {"name": "Petty", "emoji": "😒"},
+    {"name": "Glowing", "emoji": "🌟"},
+    {"name": "Flexing", "emoji": "💪💸"},
+    {"name": "Woke", "emoji": "👁️"},
+    {"name": "Boujee", "emoji": "💎"},
+    {"name": "Chaotic", "emoji": "🌀"},
+    {"name": "Yapping", "emoji": "🗯️"},
+    {"name": "Cooked", "emoji": "🍳"},
+    {"name": "Simping", "emoji": "😍💘"},
+    {"name": "Broke", "emoji": "💸"},
+    {"name": "Goofy", "emoji": "🤪"},
+]
+        # Create instances of Mood Model based on the mood array
+        mood_instances = [Mood(name=mood["name"], emoji=mood["emoji"]) for mood in moods]
+        # Add those instances of Mood Model to database
+        # ignore_conflicts=True states that ignore duplication error upon adding.
+        Mood.objects.bulk_create(mood_instances, ignore_conflicts=True)
+        # Output 
+        self.stdout.write(f"{len(mood_instances)} moods added successfully!")

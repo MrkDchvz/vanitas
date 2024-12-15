@@ -1,1 +1,31 @@
-ENTRY INDEX PAGE
+{% extends 'base.html' %} {% block content %}
+
+<div class="mx-auto w-fit">
+  {% for entry in entries %}
+  <div
+    class="relative flex flex-col my-6 bg-inherit shadow-sm fancy-border w-100"
+  >
+    <div class="mx-3 mb-0 pt-3 pb-1 px-1">
+      <span class="text-sm font-medium text-slate-400">
+        I Feel {{entry.mood.name}} {{entry.mood.emoji}}
+      </span>
+    </div>
+
+    <div class="p-3">
+      <h5 class="mb-2 text-amber-400 text-xl font-semibold">{{entry.title}}</h5>
+      <a
+        href="#"
+        class="text-amber-400 underline leading-normal font-light megrim-regular"
+      >
+        Read Confession
+      </a>
+    </div>
+    <div class="mx-3 pb-3 pt-2 px-1">
+      <span class="text-sm text-slate-400 font-medium">
+        {{ entry.date_created|date:"F d, Y"}}
+      </span>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
